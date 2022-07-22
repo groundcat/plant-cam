@@ -3,7 +3,7 @@ import pygame.camera
 import time
 from moviepy.editor import *
 
-# ======================== Config your filling plan here ===========================
+# ======================== Config your filming plan here ===========================
 
 hours = 8  # number of hours to take pictures
 film_length_minutes = 10  # length of film in minutes
