@@ -50,6 +50,7 @@ def take_picture(filename):
 
 
 def make_video():
+    pictures_list.pop(0)
     clip = ImageSequenceClip(pictures_list, fps=frame_per_second)
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     clip.write_videofile(f"saved_videos/{timestamp}.mp4", fps=frame_per_second)
