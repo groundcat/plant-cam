@@ -41,7 +41,7 @@ def take_picture(filename):
         image = cam.get_image()
 
         # saving the image
-        pygame.image.save(image, filename)
+        pygame.image.save_extended(image, filename)
 
     # if camera is not detected the moving to else part
     else:
@@ -59,6 +59,13 @@ def make_video():
 def main():
     picture_count = 1
 
+    # Create folders if it doesn't exist
+    if not os.path.exists("saved_pictures"):
+        os.makedirs("saved_pictures")
+    if not os.path.exists("saved_videos"):
+        os.makedirs("saved_videos")
+
+    # Take pictures
     while picture_count <= num_frames:
         timestamp = time.strftime("%Y%m%d-%H%M%S")
         filename = f"saved_pictures/picture_{picture_count}_{timestamp}.jpg"
@@ -68,7 +75,9 @@ def main():
         time.sleep(interval_seconds)
         picture_count += 1
 
+    # Make video
     make_video()
+
     pygame.quit()
     print(f"Generated video at {time.strftime('%Y%m%d-%H%M%S')}")
 
